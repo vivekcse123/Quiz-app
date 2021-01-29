@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+</head>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: #0d31d1;
+  }
+  .container
+  {
+    width: 40%;
+    height: 50vh 10vh;
+    margin: auto;
+    top: 100px;
+    position: relative;
+    background-color: #830dd1;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px white;
+    font-size: 18px;
+  }
+  h3,h4,p{
+    margin: 20px;
+    position: relative;
+    top: 10px;
+  }
+  ul{
+    position: relative;
+    margin: 35px;
+    top: 0;
+  }
+  .input_box
+  {
+    position: relative;
+    top: 40px;
+    width: 90%;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    text-align: center;
+    border-bottom: 2px solid white;
+    color: white;
+    font-weight: 700;
+  }
+  input::placeholder
+  {
+    color: white;
+    opacity: 0.3;
+  }
+  .quiz_btn{
+    margin: auto;
+    align-items: center;
+    position: relative;
+    top: 50px;
+    display: flex;
+    padding: 20px;
+    display: block;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid white;
+    background-color:  #830dd1;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+  .quiz_btn:hover{
+    color: white;
+    transform: translatey(-10px);
+  }
+  .content
+  {
+    width: 40%;
+    top: 100px;
+    height: 60vh 30vh;
+    margin: auto;
+    position: relative;
+    background-color: #830dd1;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px white;
+    font-size: 18px;
+    display:none;
+  }
+  .content p{
+    width: 80%;
+    border: 1px solid white;
+    height: 10vh 20vh;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  span{
+    margin: 20px;
+    color: white;
+    font-weight: 600;
+    top: 5px;
+    position: relative;
+  }
+  @media only screen and (max-width:800px) {
+    .container, .content{
+      width:100%;
+      height: 100%;
+    }
+  }
+</style>
+<body>
+  <div class="container" id="hide">
+    <h3>Instructions:-</h3>
+    <ul>
+      <li>There are 6 questions in quiz each conatain 1 marks.</li>
+      <li>Negative marking are disabled.</li>
+      <input type="text" placeholder="name" class="input_box" id="name" required>
+    </ul>
+    <button type="submit" class="quiz_btn" onclick="Quiz()">Start Quiz</button>
+    <br><br><br>
+  </div>
+    <div class="content" id="show">
+      <span id="msg"></span>
+      <h4>Question 1: Full Form of HTML ?</h4>
+      <p id="cor" onclick="Correct()">Hyper Text Markup Language.</p><span id="value"></span>
+      <p id="wor1" onclick="Wrong()">Hyper Text Marcup Language.</p><span id="value1"></span>
+      <p id="wor2" onclick="Wrong()">Hiper Text Markup Language.</p><span id="value2"></span>
+      <p id="wor3" onclick="Wrong()">Hyper Tink Markup Language.</p><span id="value3"></span>
+      <br><br>
+      </div>
+    </div>
+    <script>
+      function Quiz()
+      {
+        var name=document.getElementById("name").value;
+        if(name=="")
+        {
+          alert("Please Enter your name.....!");
+        }
+        else
+        {
+        document.getElementById("show").style.display="block"
+        document.getElementById("hide").style.display="none";
+        document.getElementById("msg").innerHTML="Hello! "+name+" Welcome to quiz....";
+        document.getElementById("msg").style.display="block";
+        }
+      }
+      function Correct()
+      {
+        document.getElementById("cor").style.background="green";
+        document.getElementById("value").innerHTML="Correct your are doing great...!";
+        document.getElementById("value").style.color="green";
+      }
+      function Wrong()
+      {
+        document.getElementById("wor1").style.background="red";
+        document.getElementById("wor2").style.background="red";
+        document.getElementById("wor3").style.background="red";
+        document.getElementById("value1").innerHTML="Wrong do more practice....!";
+        document.getElementById("value2").innerHTML="Wrong do more practice....!";
+        document.getElementById("value3").innerHTML="Wrong do more practice....!";
+        document.getElementById("value1").style.color="red";
+        document.getElementById("value2").style.color="red";
+        document.getElementById("value3").style.color="red";
+      }
+    </script>
+</body>
+</html>
